@@ -36,16 +36,24 @@ int LinkedList<T>::size() const
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
-	Node<T>* temp = m_front;
-	bool isFound = false;
-
-	if(m_front == nullptr)
+	if(m_front == nullptr) //if nothing to begin with, can't find it
 		return false;
-	/** TODO 
-		Fix this method
-	*/
-
-	return(isFound);
+	else //m_front != nullptr, there is a first element
+	{
+		Node<T>* temp = m_front; //start at first element
+		while(temp != nullptr) //run until we run out of elements in the list
+		{
+			if(temp.getValue() == value) //check current element against "value"
+				return true;
+			else
+			{
+				temp = temp.getNext(); //go to next element in list
+			}
+		}
+		//break the while loop when we run out of elements
+	}
+	//somehow reaching this point, we can assume we did not find the element
+	return false;
 }
 
 template <typename T>
@@ -103,9 +111,31 @@ bool LinkedList<T>::removeBack()
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
 
+	//if(!isEmpty()) //m_front exists
+	//{
+		//if(m_front.getNext() != nullptr) //if there are at least 2 elements
+		//{
+			//secondintoLast = m_front;
+			//lastNode = m_front.getNext();
+		//}
+		//else //if there is 1 element
+			//return this.removeFront(); //already implemented method
+	//}
+	//else //otw, no elements, so we can't remove anything
+	//{
+		//return false;
+	//}
+
 	/** TODO 
 		Fix this method
 	*/
+
+
+
+	//TODO: find position before (secondintoLast) that its next-next points to nullptr,
+	//the second's next is the last
+	//delete the last, stop second pointing to it,
+	//decrease size
 
 	return(isRemoved);
 }	
