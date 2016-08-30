@@ -1,5 +1,5 @@
 /**
-*	@author 
+*	@author Hans Brown & John Gibbons
 *	@date 
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
@@ -29,10 +29,8 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	/** TODO 
-		Fix this method
-	*/
-	return(0);
+	//assume m_size is accurate record of size
+	return(m_size);
 }
 
 template <typename T>
@@ -41,6 +39,8 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	bool isFound = false;
 
+	if(m_front == nullptr)
+		return false;
 	/** TODO 
 		Fix this method
 	*/
