@@ -135,18 +135,7 @@ bool LinkedList<T>::removeBack()
 		return false;
 	}
 
-	/** TODO 
-		Fix this method
-	*/
-
-
-
-	//TODO: find position before (secondintoLast) that its next-next points to nullptr,
-	//the second's next is the last
-	//delete the last, stop second pointing to it,
-	//decrease size
-
-	return(isRemoved);
+	return(false);
 }	
 
 template <typename T>
