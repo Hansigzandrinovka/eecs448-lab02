@@ -109,22 +109,31 @@ bool LinkedList<T>::removeBack()
 {
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
-	bool isRemoved = false;
 
-	//if(!isEmpty()) //m_front exists
-	//{
-		//if(m_front.getNext() != nullptr) //if there are at least 2 elements
-		//{
-			//secondintoLast = m_front;
-			//lastNode = m_front.getNext();
-		//}
-		//else //if there is 1 element
-			//return this.removeFront(); //already implemented method
-	//}
-	//else //otw, no elements, so we can't remove anything
-	//{
-		//return false;
-	//}
+	if(!isEmpty()) //m_front exists
+	{
+		if(m_front.getNext() != nullptr) //if there are at least 2 elements
+		{
+			secondintoLast = m_front;
+			lastNode = m_front.getNext();
+			while(lastNode.getNext() != nullptr) //until we reach last node
+			{
+				secondintoLast = lastNode; //go to next node (and track the one before it)
+				lastNode = lastNode.getNext();
+			}
+			//upon reaching last node, delete and dereference it
+			delete lastNode;
+			m_size --;
+			secondintoLast.setNext(nullptr);
+			return true;
+		}
+		else //if there is only 1 element
+			return this.removeFront(); //already implemented method
+	}
+	else //otw, no elements, so we can't remove anything
+	{
+		return false;
+	}
 
 	/** TODO 
 		Fix this method
